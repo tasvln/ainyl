@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cabin.className}>
+      <body className={`bg-orange-50 ${cabin.className}`}>
         {children}
       </body>
     </html>

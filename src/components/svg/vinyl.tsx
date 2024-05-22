@@ -1,10 +1,21 @@
 type VinylProps = {
-  backgroundColor?: string;
-  ringColor?: string;
+  backgroundColor: string;
+  innerRingColor: string;
   ringOffset?: string;
+  outerRingColor?: string;
+  bgImage?: string;
+  innerBgImage?: string;
 };
 
-const Vinyl = () => {
+const Vinyl = (props: VinylProps) => {
+  const { 
+    backgroundColor, 
+    innerRingColor, 
+    ringOffset,
+    bgImage,
+    innerBgImage
+  } = props;
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="699" height="699" viewBox="0 0 699 699" fill="none">
       <rect x="1" y="1" width="697" height="697" rx="348.5" fill="black" stroke="#F9FE00" stroke-width="2"/>
@@ -14,6 +25,10 @@ const Vinyl = () => {
       <rect x="172.294" y="172.294" width="353.538" height="353.538" rx="176.769" stroke="white" stroke-opacity="0.2" stroke-width="2"/>
       <rect x="224" y="223" width="250" height="250" rx="125" fill="white"/>
       <rect x="329" y="329" width="42" height="42" rx="21" fill="black"/>
+      <def>
+        {/* bgImage */}
+        {/* innerBgImage */}
+      </def>
     </svg>
   )
 };

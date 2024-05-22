@@ -15,6 +15,10 @@ input, textarea, button, select {
   outline: none;
 }
 
+input {
+  background: inherit;
+}
+
 a {
   color: #0070f3;
   text-decoration: none;

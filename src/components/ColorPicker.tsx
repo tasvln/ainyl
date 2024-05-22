@@ -39,7 +39,7 @@ const ColorPicker = ({ value, onChange }: ColorPickerProps) => {
     <div>
       <div className="ml-1 mt-2 flex items-center gap-4">
         <div 
-          className="w-8 h-8 rounded-md ring-2 ring-gray-400 ring-offset-2 cursor-pointer"
+          className="w-8 h-8 rounded-md ring-2 ring-orange-500 ring-offset-2 cursor-pointer"
           style={{ backgroundColor: value }}
           onClick={toggleColorPicker}
         />
@@ -57,6 +57,7 @@ const ColorPicker = ({ value, onChange }: ColorPickerProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            ref={pickerRef}
           >
             <HexColorPicker color={value} onChange={onChange} />
           </motion.div>
