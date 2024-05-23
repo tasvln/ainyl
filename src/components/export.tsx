@@ -44,9 +44,9 @@ const Export = ({ title, handleConvert }: ExportProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute z-10 w-full h-full bg-orange-200 bg-opacity-50 top-0 left-0 flex items-center justify-center cursor-pointer"
+            className="fixed z-10 w-full h-screen bg-orange-200 bg-opacity-50 top-0 left-0 flex items-center justify-center cursor-pointer"
           >
-            <div className="w-1/3 bg-white p-4 cursor-default" ref={modalRef}>
+            <div className="w-full xl:w-1/3 bg-white p-4 cursor-default" ref={modalRef}>
               {/* Export as Image Section */}
               <div className="flex items-center gap-4">
                 <button 
@@ -63,7 +63,7 @@ const Export = ({ title, handleConvert }: ExportProps) => {
                 </button>
               </div>
               {/* Export animated version */}
-              <div className="flex flex-col gap-1 mt-6 pointer-events-none opacity-10">
+              <div className="flex flex-col gap-1 mt-6 pointer-events-none opacity-30">
                 <p className="text-gray-500 text-left">* vinyl would be rotating with music uploaded</p>
                 <div className="w-full p-2 px-3 border border-gray-300 py-2 mb-1 flex justify-center items-center">
                   <p className="text-gray-500 lowercase">Upload Song *</p>
