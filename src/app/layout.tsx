@@ -5,7 +5,7 @@ import "./globals.css";
 const cabin = Cabin({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ainyl",
+  title: "disyl",
   description: "Generated a Vinyl",
 };
 
