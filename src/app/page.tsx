@@ -45,7 +45,7 @@ export default function Home() {
           />
           <DropBox 
             title="Upload // Inner Circle Background Artwork" 
-            additional="700px x 700px"
+            additional="250px x 250px"
             acceptedFiles={{ 'image/*': ['.jpeg', '.png'] }}
             optional
           />
