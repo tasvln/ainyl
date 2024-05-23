@@ -36,7 +36,9 @@ export default function Home() {
   
   return (
     <main className="h-full xl:h-dvh flex flex-col xl:overflow-hidden relative">
-      <p className="xl:hidden absolute top-0 text-center mt-4 w-full text-sm text-gray-600">scroll down :)</p>
+      <p className="xl:hidden absolute top-0 text-center mt-4 w-full text-sm text-gray-600">
+        scroll down :)
+      </p>
       <section className="grid grid-cols-1 w-full h-full gap-4 p-4 xl:p-8 xl:grid-cols-editorlayout">
         {/* Vinyl */}
         <div className="flex items-center justify-center">
