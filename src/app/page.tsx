@@ -51,7 +51,6 @@ export default function Home() {
             innerBgImage={innerRingArtwork}
           />
         </div>
-        {/* Info */}
         <div className="flex flex-col gap-4 justify-center">
           <input 
             type="text"
