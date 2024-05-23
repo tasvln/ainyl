@@ -11,10 +11,10 @@ import { convertSvgToImage } from "@/lib/utils/helpers";
 
 export default function Home() {
   const [title, setTitle] = useState<string>("");
-  const [bgColor, setBgColor] = useState<string>("#000000");
+  const [bgColor, setBgColor] = useState<string>("#ffffff");
   const [ringColor, setRingColor] = useState<string>("#FFFFFF");
-  const [offsetColor, setOffsetColor] = useState<string>("#413b3b");
-  const [outerRingColor, setOuterRingColor] = useState<string>("#ff0000");
+  const [offsetColor, setOffsetColor] = useState<string>("#000000");
+  const [outerRingColor, setOuterRingColor] = useState<string>("#000000");
 
   const [bgArtwork, setBgArtwork] = useState<string | null>(null);
   const [innerRingArtwork, setInnerRingArtwork] = useState<string | null>(null);
@@ -25,7 +25,7 @@ export default function Home() {
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `converted-image.${format}`;
+        link.download = `disyl-${title.toLowerCase().replace(/\s/g, '-')}.${format}`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -37,8 +37,9 @@ export default function Home() {
   };
   
   return (
-    <main className="h-dvh flex flex-col overflow-hidden relative">
-      <section className="grid w-full h-full gap-4 p-8 grid-cols-editorlayout">
+    <main className="h-full xl:h-dvh flex flex-col xl:overflow-hidden relative">
+      <p className="xl:hidden absolute top-0 text-center mt-4 w-full text-sm text-gray-600">scroll down :)</p>
+      <section className="grid grid-cols-1 w-full h-full gap-4 p-4 xl:p-8 xl:grid-cols-editorlayout">
         {/* Vinyl */}
         <div className="flex items-center justify-center">
           <Vinyl 
@@ -73,7 +74,7 @@ export default function Home() {
             setPreview={setInnerRingArtwork}
             optional
           />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <div>
               <p className="text-gray-500">Background Color</p>
               <ColorPicker 

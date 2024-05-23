@@ -62,7 +62,7 @@ const Vinyl = (props: VinylProps) => {
         {/* innerBgImage */}
         {innerBgImage && (
           <pattern id="innerPattern" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlinkHref="#innerImage" transform="scale(0.00390625)"/>
+            <use xlinkHref="#innerImage" transform="scale(0.004)"/>
           </pattern>
         )}
         {innerBgImage && (
