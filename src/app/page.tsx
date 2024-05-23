@@ -107,7 +107,9 @@ export default function Home() {
             title={title}
             handleConvert={handleVinylConvertion}
           />
-          <p className="text-sm text-gray-500 text-right">* optional</p>
+          <p className="text-sm text-gray-500 text-right">
+            * optional
+          </p>
         </div>
       </section>
     </main>
