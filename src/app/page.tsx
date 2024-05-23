@@ -7,13 +7,34 @@ import Image from "next/image";
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion"
 import DropBox from "@/components/dropBox";
+import { convertSvgToImage } from "@/lib/utils/helpers";
 
 export default function Home() {
-  const [title, setTitle] = useState("");
-  const [bgColor, setBgColor] = useState("#000000");
-  const [ringColor, setRingColor] = useState("#FFFFFF");
-  const [offsetColor, setOffsetColor] = useState("#413b3b");
-  const [outerRingColor, setOuterRingColor] = useState("#ff0000");
+  const [title, setTitle] = useState<string>("");
+  const [bgColor, setBgColor] = useState<string>("#000000");
+  const [ringColor, setRingColor] = useState<string>("#FFFFFF");
+  const [offsetColor, setOffsetColor] = useState<string>("#413b3b");
+  const [outerRingColor, setOuterRingColor] = useState<string>("#ff0000");
+
+  const [bgArtwork, setBgArtwork] = useState<string | null>(null);
+  const [innerRingArtwork, setInnerRingArtwork] = useState<string | null>(null);
+
+  const handleVinylConvertion = (format: 'png' | 'jpeg' | 'jpg') => {
+    convertSvgToImage('disyl-vinyl', format)
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `converted-image.${format}`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error('Error converting SVG:', error);
+      });
+  };
   
   return (
     <main className="h-dvh flex flex-col overflow-hidden relative">
@@ -25,11 +46,12 @@ export default function Home() {
             innerRingColor={ringColor}
             ringOffset={offsetColor}
             outerRingColor={outerRingColor}
+            bgImage={bgArtwork}
+            innerBgImage={innerRingArtwork}
           />
         </div>
         {/* Info */}
         <div className="flex flex-col gap-4 justify-center">
-          <p className="text-sm text-gray-500">* optional</p>
           <input 
             type="text"
             placeholder="Name // Title"
@@ -41,12 +63,14 @@ export default function Home() {
             title="Upload // Background Artwork" 
             additional="700px x 700px"
             acceptedFiles={{ 'image/*': ['.jpeg', '.png'] }}
+            setPreview={setBgArtwork}
             optional
           />
           <DropBox 
             title="Upload // Inner Circle Background Artwork" 
             additional="250px x 250px"
             acceptedFiles={{ 'image/*': ['.jpeg', '.png'] }}
+            setPreview={setInnerRingArtwork}
             optional
           />
           <div className="grid grid-cols-2 gap-4">
@@ -79,7 +103,11 @@ export default function Home() {
               />
             </div>
           </div>
-          <Export title={title} />
+          <Export 
+            title={title}
+            handleConvert={handleVinylConvertion}
+          />
+          <p className="text-sm text-gray-500 text-right">* optional</p>
         </div>
       </section>
     </main>

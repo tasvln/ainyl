@@ -1,20 +1,22 @@
 import useFileUpload from '@/lib/hooks/useFileUpload';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 type DropBoxProps = {
   title: string;
   additional?: string;
   optional?: boolean;
   acceptedFiles: { [key: string]: string[] }
+  setPreview: (preview: string | null) => void;
 };
 
 const DropBox = (props: DropBoxProps) => {
-  const { title, optional, additional, acceptedFiles } = props;
+  const { title, optional, additional, acceptedFiles, setPreview } = props;
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const { 
     file, 
+    preview,
     handleFileChange, 
     handleDrop, 
     handleDragOver, 
@@ -27,7 +29,13 @@ const DropBox = (props: DropBoxProps) => {
     }
   };
 
-  console.log(file);
+  useEffect(() => {
+    if (file) {
+      setPreview(preview);
+    }
+  }, [preview]);
+
+  const acceptString = Object.values(acceptedFiles).flat().join(',');
 
   return (
     <div 
@@ -40,6 +48,7 @@ const DropBox = (props: DropBoxProps) => {
         onChange={handleFileChange} 
         style={{ display: 'none' }} 
         ref={fileInputRef}
+        accept={acceptString}
       />
       <button type="button" onClick={handleButtonClick} className="text-gray-500">{title} {optional && "*"}</button>
       {file ? (

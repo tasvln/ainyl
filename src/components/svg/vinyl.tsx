@@ -3,8 +3,8 @@ type VinylProps = {
   innerRingColor: string;
   ringOffset?: string;
   outerRingColor?: string;
-  bgImage?: string;
-  innerBgImage?: string;
+  bgImage?: string | null;
+  innerBgImage?: string | null;
 };
 
 const Vinyl = (props: VinylProps) => {
@@ -18,7 +18,14 @@ const Vinyl = (props: VinylProps) => {
   } = props;
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700" fill="none">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="700" 
+      height="700" 
+      viewBox="0 0 700 700" 
+      fill="none"
+      id="disyl-vinyl"
+    >
       <rect 
         x="1" 
         y="1" 
@@ -46,7 +53,7 @@ const Vinyl = (props: VinylProps) => {
         {/* bgImage */}
         {bgImage && (
           <pattern id="bgPattern" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlinkHref="#bgImage" transform="scale(0.00390625)"/>
+            <use xlinkHref="#bgImage" transform="scale(0.0015)"/>
           </pattern>
         )}
         {bgImage && (

@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "framer-motion"
 
 type ExportProps = {
   title: string;
+  handleConvert: (format: 'png' | 'jpeg' | 'jpg') => void;
 };
 
-const Export = ({ title }: ExportProps) => {
+const Export = ({ title, handleConvert }: ExportProps) => {
   const [openExport, setOpenExport] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -48,15 +49,21 @@ const Export = ({ title }: ExportProps) => {
             <div className="w-1/3 bg-white p-4 cursor-default" ref={modalRef}>
               {/* Export as Image Section */}
               <div className="flex items-center gap-4">
-                <button className="w-full bg-orange-500 text-center lowercase text-white py-2">
+                <button 
+                  className="w-full bg-orange-500 text-center lowercase text-white py-2"
+                  onClick={() => handleConvert('png')}
+                >
                   download as png
                 </button>
-                <button className="w-full bg-orange-500 text-center lowercase text-white py-2">
+                <button 
+                  className="w-full bg-orange-500 text-center lowercase text-white py-2"
+                  onClick={() => handleConvert('jpeg')}
+                >
                   download as jpeg
                 </button>
               </div>
               {/* Export animated version */}
-              <div className="flex flex-col gap-1 mt-6">
+              <div className="flex flex-col gap-1 mt-6 pointer-events-none opacity-10">
                 <p className="text-gray-500 text-left">* vinyl would be rotating with music uploaded</p>
                 <div className="w-full p-2 px-3 border border-gray-300 py-2 mb-1 flex justify-center items-center">
                   <p className="text-gray-500 lowercase">Upload Song *</p>
