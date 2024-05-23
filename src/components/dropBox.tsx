@@ -33,7 +33,7 @@ const DropBox = (props: DropBoxProps) => {
     if (file) {
       setPreview(preview);
     }
-  }, [preview]);
+  }, [file, preview, setPreview]);
 
   const acceptString = Object.values(acceptedFiles).flat().join(',');
 

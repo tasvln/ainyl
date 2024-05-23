@@ -1,13 +1,11 @@
 "use client";
 
+import { useState, useCallback } from "react";
+import DropBox from "@/components/dropBox";
+import { convertSvgToImage } from "@/lib/utils/helpers";
 import ColorPicker from "@/components/colorPicker";
 import Export from "@/components/export";
 import Vinyl from "@/components/svg/vinyl";
-import Image from "next/image";
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion"
-import DropBox from "@/components/dropBox";
-import { convertSvgToImage } from "@/lib/utils/helpers";
 
 export default function Home() {
   const [title, setTitle] = useState<string>("");
