@@ -1,11 +1,12 @@
 "use client";
 
-import ColorPicker from "@/components/ColorPicker";
-import Export from "@/components/Export";
+import ColorPicker from "@/components/colorPicker";
+import Export from "@/components/export";
 import Vinyl from "@/components/svg/vinyl";
 import Image from "next/image";
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion"
+import DropBox from "@/components/dropBox";
 
 export default function Home() {
   const [title, setTitle] = useState("");
@@ -36,12 +37,18 @@ export default function Home() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="w-full p-2 px-3 border border-gray-300 h-20 flex justify-center items-center">
-            <p className="text-gray-500">Upload // Background Artwork *</p>
-          </div>
-          <div className="w-full p-2 px-3 border border-gray-300 h-20 flex justify-center items-center">
-            <p className="text-gray-500">Upload // Inner Circle Background Artwork *</p>
-          </div>
+          <DropBox 
+            title="Upload // Background Artwork" 
+            additional="700px x 700px"
+            acceptedFiles={{ 'image/*': ['.jpeg', '.png'] }}
+            optional
+          />
+          <DropBox 
+            title="Upload // Inner Circle Background Artwork" 
+            additional="700px x 700px"
+            acceptedFiles={{ 'image/*': ['.jpeg', '.png'] }}
+            optional
+          />
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-gray-500">Background Color</p>

@@ -27,12 +27,12 @@ const Vinyl = (props: VinylProps) => {
         rx="349" 
         fill={bgImage ? "url(#bgPattern)" : backgroundColor}
         stroke={outerRingColor ? outerRingColor : "#F9FE00"}
-        stroke-width="2"
+        strokeWidth="2"
       />
-      <rect x="50" y="50" width="600" height="600" rx="300" stroke={ringOffset ?? "white"} stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="80.625" y="80.625" width="538.75" height="538.75" rx="269.375" stroke={ringOffset ?? "white"} stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="141" y="140.125" width="417.125" height="417.125" rx="208.562" stroke={ringOffset ?? "white"} stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="172.539" y="172.539" width="354.046" height="354.046" rx="177.023" stroke={ringOffset ?? "white"} stroke-opacity="0.2" stroke-width="2"/>
+      <rect x="50" y="50" width="600" height="600" rx="300" stroke={ringOffset ?? "white"} strokeOpacity="0.2" strokeWidth="2"/>
+      <rect x="80.625" y="80.625" width="538.75" height="538.75" rx="269.375" stroke={ringOffset ?? "white"} strokeOpacity="0.2" strokeWidth="2"/>
+      <rect x="141" y="140.125" width="417.125" height="417.125" rx="208.562" stroke={ringOffset ?? "white"} strokeOpacity="0.2" strokeWidth="2"/>
+      <rect x="172.539" y="172.539" width="354.046" height="354.046" rx="177.023" stroke={ringOffset ?? "white"} strokeOpacity="0.2" strokeWidth="2"/>
       <rect 
         x="226" 
         y="225"
